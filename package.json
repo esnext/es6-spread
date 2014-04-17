@@ -1,0 +1,34 @@
+{
+  "name": "es6-spread",
+  "version": "0.0.0",
+  "description": "ES6 spread compiled to ES5.",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:square/es6-spread.git"
+  },
+  "dependencies": {
+    "esprima": "git://github.com/ariya/esprima.git#harmony",
+    "recast": "^0.5.13",
+    "ast-types": "^0.3.23",
+    "through": "~2.3.4"
+  },
+  "devDependencies": {
+    "example-runner": "0.1.0",
+    "es6-rest-params": "^0.1.0"
+  },
+  "scripts": {
+    "test": "node test/runner.js"
+  },
+  "keywords": [
+    "es6",
+    "spread",
+    "varargs",
+    "apply"
+  ],
+  "author": "Square, Inc.",
+  "license": "Apache 2"
+}
