@@ -9,15 +9,21 @@ Error.stackTraceLimit = 20;
 var esprima = require('esprima');
 var recast = require('recast');
 
-var es6spread = require('../lib');
-var es6restParams = require('es6-rest-params');
+var spread = require('../lib');
+var restParams = require('es6-rest-params');
 
 var fs = require('fs');
 var path = require('path');
+var assert = require('assert');
+
 var RESULTS = 'test/results';
 
 if (!fs.existsSync(RESULTS)) {
   fs.mkdirSync(RESULTS);
+}
+
+function normalize(source) {
+  return recast.prettyPrint(recast.parse(source, { esprima: esprima })).code;
 }
 
 require('example-runner').runCLI(process.argv.slice(2), {
@@ -29,11 +35,17 @@ require('example-runner').runCLI(process.argv.slice(2), {
     };
 
     var ast = recast.parse(source, recastOptions);
-    ast = es6restParams.transform(es6spread.transform(ast));
+    ast = restParams.transform(spread.transform(ast));
     var result = recast.print(ast, recastOptions);
 
     fs.writeFileSync(path.join(RESULTS, testName + '.js'), result.code, 'utf8');
     fs.writeFileSync(path.join(RESULTS, testName + '.js.map'), JSON.stringify(result.map), 'utf8');
     return result.code;
+  },
+
+  context: {
+    assertSourceEquivalent: function(expected, actual) {
+      assert.equal(normalize('(' + expected + ')'), normalize('(' + actual + ')'));
+    }
   }
 });
