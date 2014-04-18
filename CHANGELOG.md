@@ -1,3 +1,7 @@
+## v0.0.3
+
+* Ensure that temporary variables are not redeclared.
+
 ## v0.0.2
 
 * Fix spreads with a call context inside function expressions.
