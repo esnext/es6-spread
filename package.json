@@ -1,6 +1,6 @@
 {
   "name": "es6-spread",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ES6 spread compiled to ES5.",
   "main": "lib/index.js",
   "directories": {
