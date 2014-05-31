@@ -1,20 +1,12 @@
 # es6-spread
 
 Compiles JavaScript written using ES6 spread syntax to use the equivalent ES5
-code. For example, this:
+code. For example, this spreads `args` out as positional arguments to `f`:
 
 ```js
 function f(x, y, z) { }
 var args = [0, 1, 2];
 f(...args);
-```
-
-compiles to this:
-
-```js
-function f(x, y, z) { }
-var args = [0, 1, 2];
-f.apply(null, args);
 ```
 
 This project is part of [esnext][esnext], a project to compile the syntax of
