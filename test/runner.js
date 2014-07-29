@@ -6,7 +6,6 @@
 
 Error.stackTraceLimit = 20;
 
-var esprima = require('esprima');
 var recast = require('recast');
 
 var spread = require('../lib');
@@ -23,13 +22,12 @@ if (!fs.existsSync(RESULTS)) {
 }
 
 function normalize(source) {
-  return recast.prettyPrint(recast.parse(source, { esprima: esprima })).code;
+  return recast.prettyPrint(recast.parse(source)).code;
 }
 
 require('example-runner').runCLI(process.argv.slice(2), {
   transform: function(source, testName, filename) {
     var recastOptions = {
-      esprima: esprima,
       sourceFileName: filename,
       sourceMapName: filename + '.map'
     };
