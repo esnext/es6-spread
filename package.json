@@ -11,14 +11,14 @@
     "url": "git@github.com:square/es6-spread.git"
   },
   "dependencies": {
-    "recast": "^0.5.27",
-    "ast-types": "^0.3.27",
+    "recast": "^0.6.10",
+    "ast-types": "^0.4.8",
     "through": "~2.3.4",
-    "ast-util": "^0.1.0"
+    "ast-util": "^0.3.4"
   },
   "devDependencies": {
     "example-runner": "0.1.0",
-    "es6-rest-params": "^0.1.0"
+    "es6-rest-params": "^0.1.1"
   },
   "scripts": {
     "test": "node test/runner.js"
